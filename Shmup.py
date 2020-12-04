@@ -24,7 +24,7 @@ pygame.init()
 pygame.mixer.init()  # music
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Shump!")
-clock = pygame.time.Clock()
+clock = pygame.time.Clock() # clock object: store the running speed to sync with FPS
 
 
 class Player(pygame.sprite.Sprite):
@@ -40,7 +40,7 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         self.speedx = 0
-        keystate = pygame.key.get_pressed()
+        keystate = pygame.key.get_pressed() # return a list that store all the keyboard input
         if keystate[pygame.K_LEFT]:  # 键盘左键
             self.speedx = -5
         if keystate[pygame.K_RIGHT]:
@@ -96,7 +96,7 @@ class Bullet(pygame.sprite.Sprite):
             self.kill()
 
 
-all_sprites = pygame.sprite.Group()
+all_sprites = pygame.sprite.Group() # store all sprites in a group to update and draw
 mobs = pygame.sprite.Group()
 bullets = pygame.sprite.Group()
 player = Player()
